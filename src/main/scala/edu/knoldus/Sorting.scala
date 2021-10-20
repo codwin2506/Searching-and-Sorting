@@ -5,15 +5,15 @@ import scala.util.control.Breaks.{break, breakable}
 class Sorting {
 
   def insertionSort(array: Array[Int]): Array[Int] = {
-    for ( j <- 1 until array.length ) {
+    for ( i <- 1 until array.length ) {
       breakable {
-        for ( i <- (1 to j).reverse ) {
-          if (array(i-1) < array(i)) {
+        for ( j <- (i-1 to 1) by -1 ) {
+          if (array(j-1) < array(j)) {
             break
           } else {
-            val temp = array(i)
-            array(i) = array(i-1)
-            array(i-1) = temp
+            val temp = array(j)
+            array(j) = array(j-1)
+            array(j-1) = temp
           }
         }
       }
